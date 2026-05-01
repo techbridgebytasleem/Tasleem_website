@@ -9,17 +9,48 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 });
     }
 
-    const webhookResponse = await fetch('https://n8n.srv1141659.hstgr.cloud/webhook-test/f729bb94-bd18-4462-bf8b-ef1079e0266f', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, company: company || '', subject: subject || '', message }),
-    });
+    const airtableToken = process.env.AIRTABLE_PERSONAL_ACCESS_TOKEN;
+    const airtableBaseId = process.env.AIRTABLE_BASE_ID;
+    const airtableTableName = process.env.AIRTABLE_TABLE_NAME || 'Contact Submissions';
 
-    if (!webhookResponse.ok) {
-      throw new Error(`n8n webhook responded with status ${webhookResponse.status}`);
+    if (!airtableToken || !airtableBaseId) {
+      return NextResponse.json(
+        { error: 'Airtable is not configured. Please set AIRTABLE_PERSONAL_ACCESS_TOKEN and AIRTABLE_BASE_ID environment variables.' },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json({ success: true });
+    const airtableResponse = await fetch(
+      `https://api.airtable.com/v0/${airtableBaseId}/${encodeURIComponent(airtableTableName)}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${airtableToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fields: {
+            Name: name,
+            Email: email,
+            Company: company || '',
+            Subject: subject || '',
+            Message: message,
+          },
+        }),
+      }
+    );
+
+    const airtableData = await airtableResponse.json();
+
+    if (!airtableResponse.ok) {
+      const errorMessage =
+        airtableData?.error?.message ||
+        airtableData?.error?.type ||
+        `Airtable responded with status ${airtableResponse.status}`;
+      throw new Error(errorMessage);
+    }
+
+    return NextResponse.json({ success: true, recordId: airtableData.id });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Internal server error';
     return NextResponse.json({ error: message }, { status: 500 });
