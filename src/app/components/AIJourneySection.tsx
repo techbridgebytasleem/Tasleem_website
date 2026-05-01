@@ -31,7 +31,7 @@ const milestones = [
   {
     year: '2025',
     title: 'AI Generalist Journey',
-    description: 'Pursuing GenAI certifications — bridging 20 years of cloud expertise with AI',
+    description: 'Pursuing GenAI certifications — bridging two decades of cloud expertise with AI',
     icon: 'SparklesIcon',
   },
 ];
@@ -102,7 +102,7 @@ export default function AIJourneySection() {
           </div>
           <div className="flex flex-col justify-between h-full">
             <p className="text-muted-foreground leading-relaxed text-sm">
-              My career has always been driven by curiosity and the desire to stay at the forefront of technology. Now, as AI reshapes every industry, I'm channeling 20+ years of enterprise cloud expertise into mastering Generative AI — becoming an <span className="text-gold font-semibold">AI Generalist</span> who can bridge the gap between cloud infrastructure and intelligent applications.
+              My career has always been driven by curiosity and the desire to stay at the forefront of technology. Now, as AI reshapes every industry, I'm channeling two decades of enterprise cloud expertise into mastering Generative AI — becoming an <span className="text-gold font-semibold">AI Generalist</span> who can bridge the gap between cloud infrastructure and intelligent applications.
             </p>
             <p className="text-muted-foreground leading-relaxed text-sm mt-4">
               My goal: help enterprises move from <span className="text-foreground font-medium">AI experimentation to real, operationalized AI at scale</span> — delivering scalable, secure, and measurable business outcomes.

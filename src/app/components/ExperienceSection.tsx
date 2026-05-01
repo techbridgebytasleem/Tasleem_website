@@ -119,7 +119,7 @@ export default function ExperienceSection() {
             <span className="text-shimmer">Experience</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl text-sm leading-relaxed">
-            20+ years of progressive IT leadership — from storage engineering to enterprise cloud architecture and AI-powered transformation.
+            Progressive IT leadership spanning two decades — from storage engineering to enterprise cloud architecture and AI-powered transformation.
           </p>
         </div>
 

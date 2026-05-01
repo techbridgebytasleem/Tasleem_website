@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 
 const stats = [
-  { value: '20+', label: 'Years Experience' },
+  { value: '2', label: 'Decades Experience' },
   { value: '3', label: 'Cloud Platforms' },
   { value: '7+', label: 'Certifications' },
 ];
@@ -17,6 +17,7 @@ const credentials = [
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showScroll, setShowScroll] = useState(true);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -37,6 +38,23 @@ export default function HeroSection() {
     container.addEventListener('mousemove', handleMouseMove);
     return () => container.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScroll(window.scrollY < 80);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScrollDown = () => {
+    const nextSection = document.querySelector<HTMLElement>('#experience');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section
@@ -97,7 +115,7 @@ export default function HeroSection() {
 
             {/* Summary */}
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-lg mb-8 animate-fade-up delay-300">
-              20+ years of progressive IT experience spanning cloud architecture, DevOps, enterprise transformation, and emerging AI/GenAI. Passionate about accelerating global cloud adoption and bridging cloud infrastructure with intelligent applications.
+              2 decades of experience spanning cloud architecture, DevOps, enterprise transformation, and emerging AI/GenAI. Passionate about accelerating global cloud adoption and bridging cloud infrastructure with intelligent applications.
             </p>
 
             {/* CTAs */}
@@ -190,10 +208,16 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50 animate-bounce">
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <Icon name="ChevronDownIcon" size={16} />
-      </div>
+      {showScroll && (
+        <button
+          onClick={handleScrollDown}
+          aria-label="Scroll to next section"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50 animate-bounce cursor-pointer hover:text-gold transition-colors duration-200 bg-transparent border-none outline-none"
+        >
+          <span className="text-xs tracking-widest uppercase">Scroll</span>
+          <Icon name="ChevronDownIcon" size={16} />
+        </button>
+      )}
     </section>
   );
 }
