@@ -167,7 +167,7 @@ export default function HeroSection() {
                 style={{ boxShadow: '0 0 60px rgba(212,175,55,0.2), 0 20px 60px rgba(0,0,0,0.5)' }}
               >
                 <AppImage
-                  src="/assets/images/ChatGPT_Image_Dec_21__2025__09_40_18_PM-1777618438481.png"
+                  src="/assets/images/ChatGPT_Image_Dec_21_2025_09_40_18_PM-1777618438481.png"
                   alt="Tasleem Banu — Multi-Cloud Architect and Cloud Consultant, professional headshot"
                   fill
                   className="object-cover object-center"
