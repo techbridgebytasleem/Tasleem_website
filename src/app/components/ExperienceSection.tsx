@@ -62,7 +62,7 @@ const roles: Role[] = [
     responsibilities: [
       'Storage subject matter expert managing petabyte-scale EMC Symmetrix and NetApp storage systems',
       'Part of 20-member team handling enterprise-scale storage infrastructure',
-      'Member of Cloud as a Service (CASE) team — building greenfield cloud adoption processes',
+      'Member of Cloud as a Service (CaaS) team — building greenfield cloud adoption processes',
       'Bridging client on-premise infrastructure with public cloud-native solutions (hybrid architecture)',
     ],
   },
@@ -99,7 +99,7 @@ export default function ExperienceSection() {
       { threshold: 0.1 }
     );
 
-    const items = sectionRef.current?.querySelectorAll('.reveal-item');
+    const items = sectionRef.current?.querySelectorAll('.reveal-on-scroll');
     items?.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
   }, []);
@@ -111,7 +111,7 @@ export default function ExperienceSection() {
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Section header */}
-        <div className="mb-16 reveal-item hidden-initially">
+        <div className="mb-16 reveal-on-scroll hidden-initially">
           <span className="text-gold text-xs font-bold uppercase tracking-widest mb-3 block">Career Timeline</span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-foreground leading-tight">
             Professional
@@ -132,7 +132,7 @@ export default function ExperienceSection() {
             {roles.map((role, index) => (
               <div
                 key={index}
-                className="reveal-item hidden-initially lg:pl-24 relative"
+                className="reveal-on-scroll hidden-initially lg:pl-24 relative"
                 style={{ transitionDelay: `${index * 0.12}s` }}
               >
                 {/* Timeline dot */}
@@ -199,7 +199,7 @@ export default function ExperienceSection() {
           </div>
 
           {/* Education card */}
-          <div className="reveal-item hidden-initially lg:pl-24 relative mt-8" style={{ transitionDelay: '0.5s' }}>
+          <div className="reveal-on-scroll hidden-initially lg:pl-24 relative mt-8" style={{ transitionDelay: '0.5s' }}>
             <div className="hidden lg:flex absolute left-5 top-6 w-6 h-6 rounded-full border-2 border-gold/40 items-center justify-center -translate-x-1/2"
               style={{ background: '#0A1628' }}
             >

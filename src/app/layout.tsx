@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Tasleem Banu — Multi-Cloud Architect & AI Generalist',
-  description: 'Senior Cloud Consultant at TCS with 20+ years across AWS, GCP & Azure. Multi-Cloud Architect transitioning into AI/GenAI enterprise solutions in Kuala Lumpur.',
+  description: 'Senior Cloud Consultant at TCS with two decades of experience across AWS, GCP & Azure. Multi-Cloud Architect transitioning into AI/GenAI enterprise solutions in Kuala Lumpur.',
   icons: {
     icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },

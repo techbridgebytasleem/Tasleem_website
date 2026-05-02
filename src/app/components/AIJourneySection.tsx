@@ -63,7 +63,7 @@ export default function AIJourneySection() {
   }, []);
 
   return (
-    <section className="py-20 lg:py-28 relative overflow-hidden bg-card/40">
+    <section id="ai-journey" className="py-20 lg:py-28 relative overflow-hidden bg-card/40">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       {/* Atmospheric background */}
