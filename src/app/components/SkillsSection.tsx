@@ -79,7 +79,7 @@ export default function SkillsSection() {
       <div className="max-w-6xl mx-auto px-6" ref={sectionRef}>
         {/* Header */}
         <div className="mb-16">
-          <span className="text-gold text-xs font-bold uppercase tracking-widest mb-3 block">Expertise</span>
+          <span className="text-gold text-xs font-bold uppercase tracking-widest mb-3 block">Technical Skills</span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-foreground">
             Skills &
             <br />
@@ -149,7 +149,7 @@ export default function SkillsSection() {
         {/* Key metrics row */}
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { value: '20+', label: 'Years in IT', icon: 'CalendarDaysIcon' },
+            { value: '2', label: 'Decades in IT', icon: 'CalendarDaysIcon' },
             { value: '3', label: 'Cloud Platforms', icon: 'CloudIcon' },
             { value: '4', label: 'Major Employers', icon: 'BuildingOfficeIcon' },
             { value: '7+', label: 'Certifications', icon: 'AcademicCapIcon' },

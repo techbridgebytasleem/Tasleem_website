@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Tasleem Banu — Multi-Cloud Architect & AI Generalist',
-  description: 'Senior Cloud Consultant at TCS with 20+ years across AWS, GCP & Azure. Multi-Cloud Architect transitioning into AI/GenAI enterprise solutions in Kuala Lumpur.',
+  description: 'Senior Cloud Consultant at TCS with two decades of experience across AWS, GCP & Azure. Multi-Cloud Architect transitioning into AI/GenAI enterprise solutions in Kuala Lumpur.',
   icons: {
     icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },
@@ -41,7 +41,7 @@ export default function RootLayout({
       <body className={plusJakartaSans.className}>
         {children}
 
-        <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fpersonalw6728back.builtwithrocket.new&_be=https%3A%2F%2Fappanalytics.rocket.new&_v=0.1.18" />
+        <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ftasleemwe2287back.builtwithrocket.new&_be=https%3A%2F%2Fappanalytics.rocket.new&_v=0.1.18" />
         <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2" /></body>
     </html>
   );
